@@ -129,7 +129,7 @@ else:
         if 'png' in f:
             videogen.append(f)
     tot_frame = len(videogen)
-    videogen.sort(key= lambda x:int(x[-8:]))
+    videogen.sort(key= lambda x:int(x[5:-4]))
     lastframe = cv2.imread(os.path.join(args.img, videogen[0]), cv2.IMREAD_UNCHANGED)[:, :, ::-1].copy()
     videogen = videogen[1:]
 h, w, _ = lastframe.shape

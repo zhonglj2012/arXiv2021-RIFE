@@ -180,7 +180,7 @@ def main():
     # if os.path.isdir(frame_folder):
     #     shutil.rmtree(frame_folder)
     os.system('python inference_video.py --fp16 --exp=2 --png --img="tmp_frames/video"')
-    os.system(f'ffmpeg -framerate {args.fps} -pattern_type glob -i vid_out/*.png -i {args.input} -c:a copy -shortest -c:v libx264 -pix_fmt yuv420p out.mkv')
+    os.system(f'ffmpeg -framerate {args.fps*4} -pattern_type glob -i vid_out/*.png -i {args.input} -c:a copy -shortest -c:v libx264 -pix_fmt yuv420p out.mkv')
 
 if __name__ == '__main__':
     main()
